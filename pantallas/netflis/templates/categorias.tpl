@@ -12,37 +12,37 @@
         }
 
     </script>
-
 </head>
 
 <body onload="muestraMensaje('{$mensaje}');">
     <header>
-       <h1>Neflis</h1>
-       <div id="id">Usuario: <?=$usuario?> <a href='categorias.php' class='enlaceboton'>Categorias</a>    <a href='cerrar.php' class='enlaceboton'>Cerrar Sesión</a> </div>
+        <h1>Neflis</h1>
+        <div id="id">Usuario:
+            <?=$usuario?> <a href='index.php' class='enlaceboton'>Index</a> <a href='cerrar.php' class='enlaceboton'>Cerrar Sesión</a> </div>
     </header>
     <section>
-      <!--  <article id="navegacion">
+        <!--  <article id="navegacion">
             <div id="carrito">
                 <img src="imagenes/basket.png" alt="carrito" class="alinea" />
                 <a href="cesta.php">{$numero} productos</a>
             </div>
         </article>-->
         <article id="articulo">
-           <table>
-           <tr>
-            {foreach from=$avideos item=video}
-            <td>
-            <div class="flota">
-               <h2>{$video->titulo}</h2>
-                <a href="peli.php?codigo={$video->codigo}">
-                    <img id="imagen" src="carteles/{$video->cartel}" alt="{$video->cartel}" />
-                </a>
-                <br>
-                
-            </div>
-            </td>
-            {/foreach}
-            </tr>
+            <table>
+                <tr>    
+                    {foreach from=$avideos item=video}
+                    <td>
+                        <div class="flota">
+                            <h2>{$video->titulo}</h2>
+                            <a href="peli.php?codigo={$video->codigo}">
+                                <img id="imagen" src="carteles/{$video->cartel}" alt="{$video->cartel}" />
+                            </a>
+                            <br>
+
+                        </div>
+                    </td>
+                    {/foreach}
+                </tr>
             </table>
         </article>
     </section>

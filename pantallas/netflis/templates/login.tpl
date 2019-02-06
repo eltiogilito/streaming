@@ -17,13 +17,14 @@
             color: white;
             margin-bottom: 15px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
 
         }
 
         header div {
             font-size: 15px;
+            
         }
 
         article {
@@ -70,6 +71,11 @@
 
 
         }
+        #logo{
+             width: 200px;
+            height: 200px;
+            display: block;
+        }
 
         #footer {
             position: fixed;
@@ -88,7 +94,7 @@
         }
 
         caption {
-            background-color: green;
+            background-color: darkslateblue;
             color: white;
             font-weight: bold;
             padding-bottom: 5px;
@@ -104,14 +110,15 @@
 
 <body>
     <header>
-        Login
+        <img id="logo" src="logo/neflis_logo.png" alt="logo"/>
     </header>
     <section>
         <article>
-            <span style="color: red;font-weight:bold;">
+            <span style="color: red;font-weight:bold;">{$mensaje}
             </span>
 
             <form action="validar.php" method="post">
+               
                 <table>
                     <caption>Identificación</caption>
                     <tr>
@@ -126,7 +133,7 @@
                         <td colspan="2"><input type="submit" value="Validar" />
                     </tr>
                 </table>
-            </form>;
+            </form>
 
 
         </article>
