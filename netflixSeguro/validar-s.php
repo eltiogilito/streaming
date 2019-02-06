@@ -26,30 +26,20 @@ $canal=new mysqli(videosBD::IP, videosBD::USUARIO, videosBD::CLAVE, videosBD::BD
 
 
 		
-		$consulta=$canal->prepare("select clave,usuario from usuarios where usuario=?");
+		$consulta=$canal->prepare("select clave,dni from usuarios where dni=?");
+        
+        
         $consulta->bind_param("s",$usuario1);
-        $consulta->bind_result($consulta, $cclave,$nnombre);
+        $consulta->bind_result($cclave,$nnombre);
         $usuario1=$usuario;
 		$consulta->execute();
 		
-        
 
-		$videos=array();
-		while ($consulta->fetch()){
-			array_push($videos,new Video($ccodigo,$ttitulo,$ccartel,$ddescargable,$ccodigoPerfil,$ssnopsis,$vvideo));
-		}
-		$canal->close();
+        $consulta->store_result();
+
+        $n=$consulta->num_rows;
 
 
-
-
-
-
-
-
-
-mysqli_stmt_store_result($consulta);
-$n=mysqli_stmt_num_rows($consulta);
 
 
 
@@ -60,13 +50,14 @@ if ($n!=1){
 	header("Location: login.php?mensaje=".urlencode("Usuario inexistente o clave no reconocida"));
 	exit;
 }
-mysqli_stmt_fetch($consulta);
-mysqli_stmt_close($consulta);
+$consulta->fetch();
+
+$consulta->close();
 unset($consulta);
 
 
-
 if(!password_verify($clave,$cclave)){
+    
     header("Location: login.php?mensaje=".urlencode("Usuario inexistente o clave no reconocida"));
     exit;
     }
@@ -84,8 +75,9 @@ $_SESSION['usuario']=$usuario;
 $_SESSION['menu']=$menu;
 */
 
-mysqli_stmt_close($consulta);
-unset($consulta);
 
-mysqli_close($canal);
+
+
+$canal->close();
+
 ?>
