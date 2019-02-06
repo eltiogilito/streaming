@@ -8,6 +8,9 @@ require_once("../../seguridad/netflix/form-s.php");
 //require_once( "Carrito.class.php");
 
 
+if (!isset($_SESSION['variable'])){
+	$_SESSION['variable']=uniqid();
+}
 $mensaje="";
 if (isset($_GET['mensaje'])){
 	$mensaje=trim(strip_tags($_GET['mensaje']));
@@ -16,7 +19,7 @@ if (isset($_GET['mensaje'])){
 // Recuperar datos que se muestran en la pantalla
 $nnombre=$_SESSION['usuario'];
 $bd=new accesoVideos();
-$videos=$bd->getVideos($nnombre);
+$videos=$bd->getCategorias($nnombre);
 
 
 
@@ -27,6 +30,6 @@ $pantalla=new Pantalla("pantallas");
 
 $parametros=array('avideos' => $videos/*,'numero'=>$carrito->numeroProductos()*/,'mensaje'=>$mensaje);
 
-$pantalla->mostrar("index.tpl",$parametros);
+$pantalla->mostrar("categorias.tpl",$parametros);
 
 ?>

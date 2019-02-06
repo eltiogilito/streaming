@@ -3,7 +3,7 @@ class Usuario {
     
 	private $dni;
 	private $nombre;
-	private $clave;
+	
 	
 	
 	public function __construct($codigo,$titulo,$cartel){

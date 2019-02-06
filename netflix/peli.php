@@ -8,9 +8,25 @@ require_once("../../seguridad/netflix/form-s.php");
 //require_once( "Carrito.class.php");
 
 
-$mensaje="";
-if (isset($_GET['mensaje'])){
-	$mensaje=trim(strip_tags($_GET['mensaje']));
+$codigo="";
+if (isset($_GET['codigo'])){
+	$codigo=trim(strip_tags($_GET['codigo']));
+}
+if (empty($codigo)){
+	session_destroy();
+	unset($_SESSION);
+	header("Location: index.php");
+	exit;
+}
+
+//Recuperar la foto que se muestran en la pantalla
+$bd=new AccesoFotos();
+$video=$bd->getVideo($codigo);
+if (is_null($video)){
+	session_destroy();
+	unset($_SESSION);	
+	header("Location: index.php");
+	exit;
 }
 
 // Recuperar datos que se muestran en la pantalla
