@@ -1,9 +1,9 @@
 <?php 
 require_once("../../seguridad/netflix/videosBD.php");
 class AccesoVideos {
-	/*
+
 		
-	public function getFoto($codigo){
+	public function getVideo($codigo){
 		$canal=new mysqli(videosBD::IP, videosBD::USUARIO, videosBD::CLAVE, videosBD::BD);
 		if ($canal->connect_errno){
 			die("Error de conexión con la base de datos ");
@@ -22,8 +22,9 @@ class AccesoVideos {
 		}
 		$consulta->fetch();
 		$canal->close();
-		return new Video($ccodigo,$ttitulo,$ccartel,$ddescargable,$ccodigoPerfil,$ssnopsis,$vvideo);
-	}*/
+        $ttematica="";
+		return new Video($ccodigo,$ttitulo,$ccartel,$ddescargable,$ccodigoPerfil,$ssnopsis,$vvideo,$ttematica);
+    }
 	
 	public function getVideos($usuario){
 		$canal=new mysqli(videosBD::IP, videosBD::USUARIO, videosBD::CLAVE, videosBD::BD);

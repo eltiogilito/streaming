@@ -1,6 +1,7 @@
 <?php
 require_once("Video.class.php");
 require_once("accesoUsuarios.php");
+require_once("VideoStream.class.php");
 require_once("AccesoVideos.class.php");
 require_once("Pantalla.class.php");
 require_once("../../seguridad/netflix/funciones.php");
@@ -28,9 +29,12 @@ if (is_null($video)){
 	header("Location: index.php");
 	exit;
 }
+$direccion=$video->video;
 
-
-
+$direccion=$video->video;
+$ruta="../../seguridad/netflix/videos/".$direccion;
+$stream = new VideoStream($filePath);
+$stream->start();
 //Mostrar pantalla con los datos
 
 
