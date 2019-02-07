@@ -12,17 +12,7 @@
         }
 
     </script>
-    <style>
-        img{
-            display: block;
-            width: 200px;
-            height: 200px;
-        }
-        .flota{
-            width: 300px;
-            height: 300px;
-        }
-    </style>
+
 </head>
 
 <body onload="muestraMensaje('{$mensaje}');">
@@ -45,7 +35,7 @@
             <div class="flota">
                <h2>{$video->titulo}</h2>
                 <a href="peli.php?codigo={$video->codigo}">
-                    <img src="carteles/{$video->cartel}" alt="{$video->cartel}" />
+                    <img id="imagen" src="carteles/{$video->cartel}" alt="{$video->cartel}" />
                 </a>
                 <br>
                 
