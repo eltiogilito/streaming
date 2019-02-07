@@ -28,7 +28,7 @@ $videos=$bd->getCategorias($nnombre);
 
 $pantalla=new Pantalla("pantallas");
 
-$parametros=array('avideos' => $videos/*,'numero'=>$carrito->numeroProductos()*/,'mensaje'=>$mensaje);
+$parametros=array('avideos' => $videos/*,'numero'=>$carrito->numeroProductos()*/,'mensaje'=>$mensaje ,'tematica'=>"");
 
 $pantalla->mostrar("categorias.tpl",$parametros);
 

@@ -33,15 +33,9 @@ $direccion=$video->video;
 
 $direccion=$video->video;
 $ruta="../../seguridad/netflix/videos/".$direccion;
-$stream = new VideoStream($filePath);
+$stream = new VideoStream($ruta);
 $stream->start();
 //Mostrar pantalla con los datos
 
-
-$pantalla=new Pantalla("pantallas");
-
-$parametros=array('video' => $video);
-
-$pantalla->mostrar("peli.tpl",$parametros);
 
 ?>
